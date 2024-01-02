@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  # The root route
   root 'pages#home'
+
+  # The about route
   get 'about', to: 'pages#about'
+
+  # The articles route
+  resources :articles, only: [:show]
 end
