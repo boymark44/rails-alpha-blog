@@ -1,5 +1,7 @@
 # README
 
+Something 
+
 "Start of something good." - Mark 
 
 The front-end: Destroying (deleting) articles.
