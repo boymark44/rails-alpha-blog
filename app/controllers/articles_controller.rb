@@ -44,6 +44,17 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # The destroy action is used to delete an existing article.
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+    #redirect_to article_path(@article)
+    #redirect_to articles_path
+    # Suggest a code here that would redirect to the articles_path.
+    redirect_to articles_url
+  end
+
+
   private
 
   # The article_params method is used to whitelist the parameters that are passed to the create and update actions.
