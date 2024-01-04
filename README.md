@@ -2,6 +2,11 @@
 
 "Start of something good." - Mark 
 
+The front-end: Destroying (deleting) articles.
+
+REST - Representational State Transfer - Mapping HTTP verbs (GET, POST, PUT/PATCH, DELETE) to CRUD actions.
+
+Resources provides REST-ful Routes to Rails resources.    
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
