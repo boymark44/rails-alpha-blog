@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   # The about route
   get 'about', to: 'pages#about'
 
-  # The articles route
-  resources :articles, only: [:show, :index, :new, :create, :edit, :update]
+  # The RESTful routes for articles
+  resources :articles  #, only: [:show, :index, :new, :create, :edit, :update, :destroy]
 end
