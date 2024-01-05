@@ -24,4 +24,8 @@
   </tbody>
 </table>
 
-<button onclick="location.href='<%= new_article_path %>'">Create New Article</button>
+
+<br>
+<%= button_to "Create New Article", new_article_path, method: :get %>
+<br>
+<%= button_to "Go to Homepage", root_path, method: :get %>

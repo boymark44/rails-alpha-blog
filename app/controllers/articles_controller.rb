@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # Show actions are used to show a single article or items in a resource collection.
   def show
-    @article = Article.find(params[:id])
+    # set_article => @article = Article.find(params[:id])
   end
 
   # Display all the existing articles from our database.
@@ -17,13 +18,12 @@ class ArticlesController < ApplicationController
 
     # The edit action is used to display the form to edit an existing article.
   def edit
-    @article = Article.find(params[:id])
+    # set_article => @article = Article.find(params[:id])
   end
 
 
   # Create a new article.
   def create
-    #@article = Article.new(params.require(:article).permit(:title, :description))
     @article = Article.new(article_params)
     if @article.save
       flash[:notice] = "Article was created, successfully."
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
   # The update action is used to update an existing article.
   def update
-    @article = Article.find(params[:id])
+    # set_article => @article = Article.find(params[:id])
     if @article.update(article_params)
       flash[:notice] = "Article was updated, successfully."
       redirect_to article_path(@article)
@@ -46,21 +46,24 @@ class ArticlesController < ApplicationController
 
   # The destroy action is used to delete an existing article.
   def destroy
-    @article = Article.find(params[:id])
+    # set_article => @article = Article.find(params[:id])
     @article.destroy
-    #redirect_to article_path(@article)
-    #redirect_to articles_path
-    # Suggest a code here that would redirect to the articles_path.
+
     redirect_to articles_url
   end
 
 
-  private
+  private # Applying the DRY Principle.
 
+  
   # The article_params method is used to whitelist the parameters that are passed to the create and update actions.
   def article_params
     params.require(:article).permit(:title, :description) # Whitelist the parameters.
   end
 
+  # The set_article method is used to find the article that is being show, edited, updated and destroyed.
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
 end
