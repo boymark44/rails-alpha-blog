@@ -8,14 +8,19 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha384-1CmrxMRARb6XQckBO9Yns/HScs5R8zT/8/9e6R2nH0pcIcU8N7PA7wH0Gypwjb9e" crossorigin="anonymous">
   </head>
 
   <body>
-    <%# render the partial flash messages %>
+    <%# Render the flash messages for invalid inputs on forms. %>
     <%= render 'layouts/messages' %>
     
-    
     <%= yield %>
+
+    <!-- Bootstrap JS bundle with Popper -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-qtWjVMBgG0h6Nz8f5JhL8Fk4MLFuv9H/cC3meDhYiV7zoorPfI8zGc+JlDgaa2J0" crossorigin="anonymous"></script>
   </body>
 </html>
 
