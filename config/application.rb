@@ -26,5 +26,8 @@ module RailsAlphaBlog
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Timezone configuration.
+    config.time_zone = 'Asia/Singapore'
   end
 end
