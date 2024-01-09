@@ -1,14 +1,20 @@
-<%# <h1>Welcome to the Alpha Blog</h1> %>
-<div class="container mt-3">
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Welcome to Rails-AlphaBlog</h1>
-      <p>This is a sample application using Bootstrap for styling.</p>
+
+<div id="page-content">
+  <!-- jumbotron -->
+  <div class="container" id="home-container">
+    <div class="bg-light p-5 rounded-lg m-3 text-center jumbotron-background text-white">
+      <h1 class="display-4">Alpha Blog</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <a class="btn btn-success btn-lg" href="#" role="button">Sign Up!</a>
     </div>
   </div>
 </div>
 
 
-<%= button_to 'Articles Listing', articles_path, method: :get %>
-<br>
-<%= button_to 'About', about_path, method: :get %>
+<footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white">
+  <div class="container text-center">
+    <small>All Rights Reserved: Alpha Blog</small>
+  </div>
+</footer>

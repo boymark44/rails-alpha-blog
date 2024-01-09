@@ -1,0 +1,45 @@
+/* Navbar */
+.navbar { 
+  background-color: black !important;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff !important;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+
+/* Jumbotron */
+#home-container {
+  margin-top: 25px; 
+}
+
+.jumbotron-background {
+  background-image: url('typewriter-jumbotron.jpg'); // Replace with the actual path to your image
+  background-size: cover; // This will ensure that your background covers the entire jumbotron
+  background-position: center center; // This will center your background image
+}
+
+
+/* Sticky Footer */
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgrey;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}
