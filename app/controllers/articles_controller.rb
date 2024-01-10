@@ -7,8 +7,14 @@ class ArticlesController < ApplicationController
   end
 
   # Display all the existing articles from our database.
+  # Also has a basic search feature.
   def index
-    @articles = Article.all
+    if params[:search].present?
+      # Adjust the query to match your search requirements
+      @articles = Article.where("title LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+    else
+      @articles = Article.all
+    end
   end
 
   # Display the form to create a new article.
@@ -55,7 +61,7 @@ class ArticlesController < ApplicationController
 
   private # Applying the DRY Principle.
 
-  
+
   # The article_params method is used to whitelist the parameters that are passed to the create and update actions.
   def article_params
     params.require(:article).permit(:title, :description) # Whitelist the parameters.

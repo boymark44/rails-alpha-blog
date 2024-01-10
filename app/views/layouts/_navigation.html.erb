@@ -9,31 +9,33 @@
     
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Articles
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to 'Create a new article', new_article_path, class: 'dropdown-item' %>
-            <%= link_to 'View articles', articles_path, class: 'dropdown-item' %>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+        <!-- Padulong sa Home Page -->
+        <li class="nav-item">
+          <%= link_to 'Articles', articles_path, class: 'nav-link' %>
         </li>
 
+        <!-- Padulong sa New-Article Page, pagdala ug plite, dapat sensilyo. -->
+        <li class="nav-item">
+          <%= link_to 'New-Article', new_article_path, class: 'nav-link' %>
+        </li>
+        
+        <!-- Padulong sa About Page -->
         <li class="nav-item">
           <%= link_to 'About', about_path, class: 'nav-link' %>
         </li>
 
+        <!-- Tag-iya sa website, kapoy raba himo. -->
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link disabled">Mark-Glenn</a>
         </li>
       </ul>
 
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <!-- Search Bar, para sa pagpangita sa Articles. -->
+      <%= form_with(url: articles_path, method: :get, class: "d-flex", local: true) do |form| %>
+        <%= form.text_field :search, placeholder: "Search Articles", class: "form-control me-2" , value: params[:search] %>
+        <%= form.submit "Search", class: "btn btn-outline-success" %> 
+      <% end %>
+
     </div>
 
   </div>
