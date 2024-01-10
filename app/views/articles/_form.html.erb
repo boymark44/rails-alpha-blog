@@ -1,41 +1,36 @@
-<%# A Partial file for the form %>
-<% if @article.errors.any? %>
-  <h2>The Following Errors prevented the article from being saved.</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
+<!-- A partial for creating and editing an article -->
 
-<div class="row justify-content-center">
-  <div class="col-10">
-    <%= form_with(model: @article, class: "shadow p-3 mb-3 bg-info rounded", local: true, data: {turbo: false}) do |f| %>
-      <div class="form-group row mb-3">
-        <%= f.label :title, class: "col-2 col-form-label text-light" %>
-        <div class="col-10">  
-          <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Title of Article" %> 
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= render 'shared/errors' %> <!-- Render the errors partial -->
+      <%= form_with(model: @article, class: "shadow p-3 mb-3 bg-info rounded", local: true, data: {turbo: false}) do |f| %>
+        <div class="form-group row mb-3">
+          <%= f.label :title, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">  
+            <%= f.text_field :title, class: "form-control shadow rounded", placeholder: "Title of Article" %> 
+          </div>
         </div>
-      </div>
 
-      <div class="form-group row">
-        <%= f.label :description, class: "col-2 col-form-label text-light" %>
-        <div class="col-10">  
-          <%= f.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Description of Article" %>
+        <div class="form-group row">
+          <%= f.label :description, class: "col-2 col-form-label text-light" %>
+          <div class="col-10">  
+            <%= f.text_area :description, rows: 10, class: "form-control shadow rounded", placeholder: "Description of Article" %>
+          </div>
         </div>
-      </div>
 
-      <div class="form-group row justify-content-center mb-3 mt-3">
-        <div class="col-2">
-          <%= f.submit class: "btn btn-outline-light btn-sm" %>
+        <div class="form-group row justify-content-center mb-3 mt-3">
+          <div class="col-2">
+            <%= f.submit class: "btn btn-outline-light btn-sm" %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+
+  <div class="row justify-content-center">
+    <div class="col-10 text-center">
+      <%= link_to "Cancel and Return to Articles Listing Page", articles_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div> 
 </div>
-
-<div class="row justify-content-center">
-  <div class="col-10 text-center">
-    <%= link_to "Cancel and Return to Articles Listing Page", articles_path, class: "btn btn-outline-secondary" %>
-  </div>
-</div> 
