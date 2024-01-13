@@ -31,6 +31,7 @@ class ArticlesController < ApplicationController
   # Create a new article.
   def create
     @article = Article.new(article_params)
+    @article.user = User.first # This is a workaround to get the user id.
     if @article.save
       flash[:notice] = "Article was created, successfully."
       redirect_to article_path(@article)
