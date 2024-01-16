@@ -1,0 +1,36 @@
+=> 
+[[32m#<Article:0x000001ca5790f290[0m
+  id: [34m[1m49[0m,
+  title: [31m[1m"[0m[31mHello Rails[0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31medited - Description for this Article.[0m[31m[1m"[0m,
+  created_at: Wed, 10 Jan 2024 19:40:22.745300000 +08 +08:00,
+  updated_at: Sat, 13 Jan 2024 16:33:35.753925000 +08 +08:00,
+  user_id: [34m[1m2[0m[32m>[0m,
+ [32m#<Article:0x000001ca563a5b48[0m
+  id: [34m[1m51[0m,
+  title: [31m[1m"[0m[31medited - My First Article[0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31mShort description lang gud para sa atong first article, raman ug karun pa.[0m[31m[1m"[0m,
+  created_at: Wed, 10 Jan 2024 19:58:23.654898000 +08 +08:00,
+  updated_at: Sat, 13 Jan 2024 16:44:10.082382000 +08 +08:00,
+  user_id: [34m[1m2[0m[32m>[0m,
+ [32m#<Article:0x000001ca563a5a08[0m
+  id: [34m[1m53[0m,
+  title: [31m[1m"[0m[31medited - Learning Ruby on Rails[0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31mA blog for documenting the steps needed in learning Ruby on rails. \r\n[0m[31m[1m"[0m,
+  created_at: Fri, 12 Jan 2024 10:16:01.647622000 +08 +08:00,
+  updated_at: Sat, 13 Jan 2024 16:43:52.031483000 +08 +08:00,
+  user_id: [34m[1m2[0m[32m>[0m,
+ [32m#<Article:0x000001ca563a58c8[0m
+  id: [34m[1m54[0m,
+  title: [31m[1m"[0m[31mA temporary workaround solution[0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31mJust to test this input [0m[31m[1m"[0m,
+  created_at: Sat, 13 Jan 2024 16:45:13.212271000 +08 +08:00,
+  updated_at: Sat, 13 Jan 2024 16:45:13.212271000 +08 +08:00,
+  user_id: [34m[1m2[0m[32m>[0m,
+ [32m#<Article:0x000001ca563a5788[0m
+  id: [34m[1m55[0m,
+  title: [31m[1m"[0m[31mA New Article [0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31mAn article to test for usernames.[0m[31m[1m"[0m,
+  created_at: Mon, 15 Jan 2024 15:23:20.236688000 +08 +08:00,
+  updated_at: Mon, 15 Jan 2024 15:23:20.236688000 +08 +08:00,
+  user_id: [34m[1m2[0m[32m>[0m]

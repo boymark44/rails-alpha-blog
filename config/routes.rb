@@ -16,4 +16,8 @@ Rails.application.routes.draw do
 
   # The RESTful routes for articles
   resources :articles  #, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+
+  # The RESTful routes for users
+  get 'signup', to: 'users#new'
+  resources :users, except: [:new]
 end
