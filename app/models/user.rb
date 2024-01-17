@@ -12,5 +12,9 @@ class User < ApplicationRecord
 
   # Add the has_secure_password method to the model
   has_secure_password
-  
+
+  # Remove the existing password validation
+  # Add a new validation that only requires a password when creating a new record
+  # or when the password is not blank (i.e., when updating and changing the password).
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 end

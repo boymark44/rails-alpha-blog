@@ -3,6 +3,17 @@
 
 <%= gravatar_for(@user, size: 200) %>
 
+<div class="text-center mt-4">
+  <%= link_to 'Edit your profile', edit_user_path(@user), class: 'btn btn-outline-info' %>
+</div>
+
+<div class="row justify-content-center mt-3 mb-3">
+  <div class="col-10 text-center">
+    <%= link_to "Go to Users Listing Page", users_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>
+
+
 <h3 class="text-center mt-4">Articles</h3>
 
 <%= render 'articles/article' %>

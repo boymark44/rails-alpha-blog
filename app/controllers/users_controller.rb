@@ -32,9 +32,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    # Check if the password is blank and remove it from the parameters if it is.
+    if params[:user][:password].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+
     if @user.update(user_params)
       flash[:notice] = "Your account information was successfully updated."
-      redirect_to articles_path
+      redirect_to @user
     else
       render 'edit'
     end
@@ -44,7 +50,7 @@ class UsersController < ApplicationController
 
   def user_params
     # :user is a top-level key
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
 end
