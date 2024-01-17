@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+
+  def show
+    @user = User.find(params[:id])
+
+    # In order to make sure that the user is only able to see their own articles,
+    # we made the @articles variable an instance variable available to the view.
+    @articles = @user.articles
+  end
+
   def new
     @user = User.new
   end
