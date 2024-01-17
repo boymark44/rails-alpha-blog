@@ -60,7 +60,7 @@ group :development do
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem "spring"
 
   # Live reload for Faster Development
   gem 'guard-livereload', require: false  # bundle exec guard to run
