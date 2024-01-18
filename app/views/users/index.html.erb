@@ -1,6 +1,11 @@
 <!-- Display all existing users -->
 <h1 class="text-center mt-4">Alpha Blog Authors</h1>
 
+<!-- Pagination -->
+<div class="flickr_pagination">
+  <%= will_paginate @users, :container => false %>
+</div>
+
 <!-- Cards for each users -->
 <div class="container">
 
@@ -44,4 +49,9 @@
     
   <% end %>
   
+</div>
+
+<!-- Pagination -->
+<div class="flickr_pagination mb-4">
+  <%= will_paginate @users, :container => false %>
 </div>

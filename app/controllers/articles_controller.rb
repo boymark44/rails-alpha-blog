@@ -11,9 +11,9 @@ class ArticlesController < ApplicationController
   def index
     if params[:search].present?
       # Adjust the query to match your search requirements
-      @articles = Article.where("title LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+      @articles = Article.where("title LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%").paginate(page: params[:page], per_page: 5)
     else
-      @articles = Article.all
+      @articles = Article.paginate(page: params[:page], per_page: 5)
     end
   end
 
@@ -21,12 +21,6 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
   end
-
-    # The edit action is used to display the form to edit an existing article.
-  def edit
-    # set_article => @article = Article.find(params[:id])
-  end
-
 
   # Create a new article.
   def create
@@ -38,6 +32,11 @@ class ArticlesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  # The edit action is used to display the form to edit an existing article.
+  def edit
+  # set_article => @article = Article.find(params[:id])
   end
 
   # The update action is used to update an existing article.
