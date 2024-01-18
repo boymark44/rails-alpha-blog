@@ -16,7 +16,7 @@
 
         <!-- Padulong sa New-Article Page, pagdala ug plite, dapat sensilyo. -->
         <li class="nav-item">
-          <%= link_to 'New-Article', new_article_path, class: 'nav-link' %>
+          <%= link_to 'New Article', new_article_path, class: 'nav-link' %>
         </li>
         
         <!-- Padulong sa About Page -->
@@ -29,9 +29,14 @@
           <%= link_to 'Authors', users_path, class: 'nav-link' %>
         </li>
 
-        <!-- Tag-iya sa website, kapoy raba himo. -->
+        <!-- Log In Button -->
         <li class="nav-item">
-          <a class="nav-link disabled">Mark-Glenn</a>
+          <%= link_to 'Log In', login_path, class: 'nav-link' %>
+        </li>
+
+        <!-- Log Out Button -->
+        <li class="nav-item">
+          <%= link_to 'Logout', logout_path, class: 'nav-link', method: :delete %>
         </li>
       </ul>
 
