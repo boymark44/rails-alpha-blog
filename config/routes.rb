@@ -24,6 +24,6 @@ Rails.application.routes.draw do
   # The RESTful routes for sessions
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  delete 'logout', to: 'sessions#destroy', as: :logout
 
 end

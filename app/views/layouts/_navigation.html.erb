@@ -29,15 +29,26 @@
           <%= link_to 'Authors', users_path, class: 'nav-link' %>
         </li>
 
-        <!-- Log In Button -->
-        <li class="nav-item">
-          <%= link_to 'Log In', login_path, class: 'nav-link' %>
-        </li>
+        <% if logged_in? %>
+          <!-- Current-User Button -->
+          <li class="nav-item">
+            <%= link_to current_user.username, user_path(current_user), class: 'nav-link' %>
+          </li>
+          <!-- Logout Button -->
+          <li class="nav-item">
+            <%= link_to 'Logout', logout_path, data: { turbo_method: :delete }, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <!-- Login Button -->
+          <li class="nav-item">
+            <%= link_to 'Login', login_path, class: 'nav-link' %>
+          </li>  
+          <!-- Signup Button -->
+          <li class="nav-item">
+            <%= link_to 'Signup', signup_path, class: 'nav-link' %>
+          </li>  
+        <% end %>
 
-        <!-- Log Out Button -->
-        <li class="nav-item">
-          <%= link_to 'Logout', logout_path, class: 'nav-link', method: :delete %>
-        </li>
       </ul>
 
       <!-- Search Bar, para sa pagpangita sa Articles. -->
