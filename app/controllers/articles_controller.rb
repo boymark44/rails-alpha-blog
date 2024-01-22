@@ -1,9 +1,11 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # Show actions are used to show a single article or items in a resource collection.
   def show
-    # set_article => @article = Article.find(params[:id])
+    # set_article => @article = Article.find(params[:id])]
   end
 
   # Display all the existing articles from our database.
@@ -58,7 +60,7 @@ class ArticlesController < ApplicationController
     redirect_to articles_url
   end
 
-
+  # Private methods
   private # Applying the DRY Principle.
 
 
@@ -70,6 +72,15 @@ class ArticlesController < ApplicationController
   # The set_article method is used to find the article that is being show, edited, updated and destroyed.
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  # This method will restrict a user if a particular article that
+  # He or She tries to edit or delete is not his/her possession.
+  def require_same_user
+    if current_user != @article.user
+      flash[:alert] = "You can only edit or delete your own article"
+      redirect_to @article
+    end
   end
 
 end

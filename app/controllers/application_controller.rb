@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
 
+  helper_method :current_user, :logged_in? # This helper method will be accessible in all controllers and views.
+
+
   # The method will return the user object if the user is logged in, otherwise it will return nil.
-  helper_method :current_user # This helper method will be accessible in all controllers and views.
+  # This helper method will be accessible in all controllers and views.
   def current_user
     # Memoization means that the method will only be called once per request
     # and the result will be cached.
@@ -11,9 +14,16 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  helper_method :logged_in? # This helper method will be accessible in all controllers and views.
   def logged_in?
     !!current_user
   end
+
+  def require_user
+    if !logged_in?
+      flash[:alert] = "You must be logged in to perform that action"
+      redirect_to login_path
+    end
+  end
+
 
 end

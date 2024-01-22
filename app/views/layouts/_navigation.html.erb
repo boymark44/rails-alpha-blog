@@ -1,5 +1,6 @@
 <!-- Navbar Bootstrap -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+
   <div class="container-fluid">
     <%= link_to 'ALPHA BLOG', root_path, class: 'navbar-brand', id: 'logo' %>
     
@@ -16,7 +17,9 @@
 
         <!-- Padulong sa New-Article Page, pagdala ug plite, dapat sensilyo. -->
         <li class="nav-item">
+          <% if logged_in? %>
           <%= link_to 'New Article', new_article_path, class: 'nav-link' %>
+          <% end %>
         </li>
         
         <!-- Padulong sa About Page -->
@@ -31,22 +34,32 @@
 
         <% if logged_in? %>
           <!-- Current-User Button -->
-          <li class="nav-item">
-            <%= link_to current_user.username, user_path(current_user), class: 'nav-link' %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profile [<%= current_user.username %>]
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "View your profile", user_path(current_user), class: 'dropdown-item' %>
+              <%= link_to "Edit your profile", edit_user_path(current_user), class: 'dropdown-item' %>
+            </ul>
           </li>
+
           <!-- Logout Button -->
           <li class="nav-item">
             <%= link_to 'Logout', logout_path, data: { turbo_method: :delete }, class: 'nav-link' %>
           </li>
         <% else %>
+
           <!-- Login Button -->
           <li class="nav-item">
             <%= link_to 'Login', login_path, class: 'nav-link' %>
           </li>  
+
           <!-- Signup Button -->
           <li class="nav-item">
             <%= link_to 'Signup', signup_path, class: 'nav-link' %>
           </li>  
+
         <% end %>
 
       </ul>
