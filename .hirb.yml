@@ -1,0 +1,18 @@
+# :output:
+#   ActiveRecord::Base:
+#     :class: Hirb::Helpers::AutoTable
+
+
+:output:
+  ActiveRecord::Base:
+    :class: Hirb::Helpers::AutoTable
+:pager: false
+
+
+# # Custom output for Specific Models
+# :output:
+#   User:
+#     :class: Hirb::Helpers::AutoTable
+#     :ancestor: true # Apply this format to descendants of User
+#     :options:
+#       :fields: [:id, :name, :email] # Only show these fields
