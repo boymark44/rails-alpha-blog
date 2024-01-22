@@ -38,6 +38,8 @@ gem "bcrypt", "~> 3.1.7"
 # Use will_paginate for pagination [https://github.com/mislav/will_paginate]
 gem 'will_paginate', '~> 3.3.0'
 
+# Use rails-ujs for JavaScript interactivity [https://github.com/rails/rails-ujs]
+gem 'rails-ujs'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
