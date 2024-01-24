@@ -3,7 +3,7 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   # Add the one_to_many relationship
-  has_many :articles
+  has_many :articles, dependent: :destroy
 
   # Add the validations to the model attributes (username, email)
   validates :username, presence: true, uniqueness: true, length: {minimum: 3, maximum: 25}

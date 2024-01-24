@@ -10,18 +10,18 @@ Rails.application.routes.draw do
 
   # The root route
   root 'pages#home'
-
   # The about route
   get 'about', to: 'pages#about'
 
-  # The RESTful routes for articles
+
+  # All RESTful routes for articles
   resources :articles  #, only: [:show, :index, :new, :create, :edit, :update, :destroy]
 
-  # The RESTful routes for users
+  # All RESTful routes for users
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
 
-  # The RESTful routes for sessions
+  # The RESTful routes for user sessions
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy', as: :logout
