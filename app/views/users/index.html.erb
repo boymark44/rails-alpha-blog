@@ -1,3 +1,14 @@
+<!-- 
+/**
+ * Renders a paginated list of user profiles.
+ * 
+ * Displays profile cards for each user, showing their username, avatar, 
+ * article count, join date, and profile actions. Provides pagination controls.
+ * 
+ * Used on the user index page to display all signed up users.
+ */
+-->
+
 <!-- Display all existing users -->
 <h1 class="text-center mt-4">Alpha Blog Authors</h1>
 
@@ -32,9 +43,19 @@
               <%= pluralize(user.articles.count, "article") %>
             </p>
             <%= link_to 'View Profile', user, class: 'btn btn-outline-success' %>
-            <% if logged_in? && user == current_user %>
-              <%= link_to  'Edit Profile' , edit_user_path(user), class: 'btn btn-outline-info' %>
+
+            <% if logged_in? %>
+              <!-- If the user is logged in, show the edit and delete buttons -->
+              <% if user == current_user %>
+                <%= link_to 'Edit Profile' , edit_user_path(user), class: 'btn btn-outline-info' %>
+              <% end %>
+
+              <!-- If the user is an admin, show the delete button -->
+              <% if current_user.admin? %>
+                <%= link_to 'Delete Profile', user_path(user), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete the user and all its associated articles?' }, class: 'btn btn-outline-danger' %>
+              <% end %>
             <% end %>
+
           </div>
           
           <div class="card-footer text-muted">
