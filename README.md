@@ -1,24 +1,24 @@
 # README
 
-Access the website here: 
+Access the website here: (Hopefully I can host this soon to showcase this project.)
 
 
 # Resource: 
-#####a. Users 
+##### a. Users 
   - create users table and model.
   - add validations. 
     * username must be present and unique, min 3 max 25.
     * email must be present and unique, max 105.
     * email must be a valid email format, check email with regex.
 
-#####b. Associations: 
+##### b. Associations: 
   - One to Many
   * between users and articles 
 
-#####c. RESTful routes for users.
+##### c. RESTful routes for users.
 
-#####d. Authentication - Login using secure password.
+##### d. Authentication - Login using secure password.
 
-#####e. Restriction of Actions - Based on logged in/logged out state.
+##### e. Restriction of Actions - Based on logged in/logged out state.
 
-#####f. Security - Admin user functionality and access level.
+##### f. Security - Admin user functionality and access level.
